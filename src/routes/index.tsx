@@ -1,6 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, MessageCircle } from "lucide-react";
-import logoAsset from "@/assets/taza-cup-logo.png.asset.json";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import mangoBerryImage from "@/assets/mango-berry-cup.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -23,28 +22,25 @@ function HomePage() {
         <p className="eyebrow">Fruit, done properly</p>
         <h1>Fresh fruit.<br/><em>Full of joy.</em></h1>
         <p className="hero-note">Hand-cut. Generously layered. Ready whenever you need something bright.</p>
-        <a href="#fresh" className="scroll-cue"><ArrowDown /> Discover Taza</a>
+        <a href="#how-it-works" className="scroll-cue"><ArrowDown /> Discover Taza</a>
       </div>
-      <div className="hero-art">
-        <div className="hero-sun" aria-hidden="true" />
-        <img src={logoAsset.url} alt="A colorful Taza Cup filled with fresh fruit" />
-      </div>
-      <span className="hero-index">01 — 04</span>
-    </section>
-    <section id="fresh" className="tagline-band">
-      <p className="eyebrow">A little cup of good</p>
-      <h2>Fresh. Fruity.<br/><em>Made for You.</em></h2>
-      <div className="tagline-actions">
-        <Button asChild variant="order" size="lg"><Link to="/products">Checkout Our Products <ArrowRight /></Link></Button>
-        <Button variant="line" size="lg" onClick={() => window.alert("Chat is coming soon.")}><MessageCircle /> Chat with Us</Button>
+      <div className="hero-animation-placeholder" data-animation-placeholder="cup-assembly">
+        <span>Reserved animation space</span>
+        <strong>Cup assembly animation</strong>
+        <p>Cup drop · fruit fall · lid close · logo stamp</p>
       </div>
     </section>
-    <section className="animation-placeholder" data-animation-placeholder="cup-assembly">
-      <div><span>Reserved canvas</span><strong>Custom cup animation</strong><p>Cup drop · fruit fall · lid close · logo stamp</p></div>
+    <section id="how-it-works" className="how-strip">
+      <header><p className="eyebrow">Made your way</p><h2>From fresh fruit<br/>to your hands.</h2></header>
+      <ol>
+        <li><span>01</span><strong>Choose</strong><p>Pick the cup that catches your eye.</p></li>
+        <li><span>02</span><strong>Customize</strong><p>Make the mix work for your taste.</p></li>
+        <li><span>03</span><strong>Collect</strong><p>We cut, layer, and prepare it fresh.</p></li>
+      </ol>
     </section>
     <section className="home-feature">
-      <div className="feature-image"><img src={mangoBerryImage} alt="Mango Berry fruit cup" width={1200} height={1400} loading="lazy" /></div>
-      <div className="feature-copy"><p className="eyebrow">The first pour</p><h2>Mango meets berry.</h2><p>Sweet mango, jewel-bright berries, and banana come together in the cup that started it all.</p><Button asChild variant="cream" size="lg"><Link to="/products">Meet the cups <ArrowRight /></Link></Button></div>
+      <div className="feature-image"><img src={mangoBerryImage} alt="Fresh fruit cup placeholder" width={1200} height={1400} loading="lazy" /></div>
+      <div className="feature-copy"><p className="eyebrow">A first look</p><h2>A fresh favorite is coming.</h2><p>Our first cup recipes are taking shape. Expect generous layers, vivid color, and fruit prepared with care.</p><Button asChild variant="cream" size="lg"><Link to="/products">Preview the cups <ArrowRight /></Link></Button></div>
     </section>
   </>;
 }

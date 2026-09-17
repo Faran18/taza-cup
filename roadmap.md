@@ -4,3 +4,6 @@
 - [x] Add product imagery and uploaded brand artwork
 - [x] Complete order review and receipt flow
 - [x] Verify metadata, build, and responsive layouts
+- [x] Consolidate homepage hero and add integrated animation placeholder
+- [x] Replace provisional product copy with generic placeholders
+- [x] Add slide-in order panel and checkout handoff

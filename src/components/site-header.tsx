@@ -3,6 +3,7 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import logoAsset from "@/assets/taza-cup-logo.png.asset.json";
 import { Button } from "@/components/ui/button";
+import { useOrderPanel } from "@/components/order-panel";
 
 const links = [
   { to: "/", label: "Home" },
@@ -13,6 +14,7 @@ const links = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { openOrderPanel } = useOrderPanel();
   return (
     <header className="site-header">
       <Link to="/" className="brand-lockup" aria-label="Taza Cup home">
@@ -27,8 +29,8 @@ export function SiteHeader() {
         ))}
       </nav>
       <div className="header-actions">
-        <Button asChild variant="order" size="sm" className="header-order">
-          <Link to="/orders" search={{ product: undefined }}><ShoppingBag /> Order</Link>
+        <Button type="button" variant="order" size="sm" className="header-order" onClick={() => openOrderPanel()}>
+          <ShoppingBag /> Order
         </Button>
         <Button className="menu-button" variant="ghost" size="icon" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
           {open ? <X /> : <Menu />}
@@ -37,7 +39,7 @@ export function SiteHeader() {
       {open && (
         <nav className="mobile-nav" aria-label="Mobile navigation">
           {links.map((link) => <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>{link.label}</Link>)}
-          <Link to="/orders" search={{ product: undefined }} onClick={() => setOpen(false)}>Place an order</Link>
+          <Button type="button" variant="order" onClick={() => { setOpen(false); openOrderPanel(); }}>Place an order</Button>
         </nav>
       )}
     </header>

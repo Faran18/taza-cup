@@ -8,7 +8,10 @@ import { Input } from "@/components/ui/input";
 type Step = "order" | "details" | "review" | "receipt";
 type Quantities = Record<string, number>;
 export const Route = createFileRoute("/orders")({
-  validateSearch: (search: Record<string, unknown>) => ({ product: typeof search["product"] === "string" ? search["product"] : undefined }),
+  validateSearch: (search: Record<string, unknown>) => ({
+    product: typeof search["product"] === "string" ? search["product"] : undefined,
+    quantity: typeof search["quantity"] === "number" && Number.isFinite(search["quantity"]) ? Math.max(1, Math.floor(search["quantity"])) : undefined,
+  }),
   head: () => ({ meta: [
     { title: "Order Fresh Fruit — Taza Cup" }, { name: "description", content: "Choose your Taza Cups and complete a quick pickup order." },
     { property: "og:title", content: "Order Fresh Fruit — Taza Cup" }, { property: "og:description", content: "Build and confirm your fresh fruit cup order." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
@@ -16,12 +19,13 @@ export const Route = createFileRoute("/orders")({
 });
 
 function OrdersPage() {
-  const { product } = Route.useSearch();
-  const [step, setStep] = useState<Step>("order");
+  const { product, quantity } = Route.useSearch();
+  const isPanelCheckout = Boolean(product && quantity);
+  const [step, setStep] = useState<Step>(isPanelCheckout ? "details" : "order");
   const [qty, setQty] = useState<Quantities>(() => Object.fromEntries(products.map((p) => [p.id, 0])));
   const [details, setDetails] = useState({ name: "", email: "", phone: "", pickup: "" });
   const [orderNumber, setOrderNumber] = useState("");
-  useEffect(() => { if (product && products.some((p) => p.id === product)) setQty((current) => ({ ...current, [product]: Math.max(1, current[product] ?? 0) })); }, [product]);
+  useEffect(() => { if (product && products.some((p) => p.id === product)) setQty((current) => ({ ...current, [product]: quantity ?? Math.max(1, current[product] ?? 0) })); }, [product, quantity]);
   const selected = useMemo(() => products.filter((p) => (qty[p.id] ?? 0) > 0), [qty]);
   const subtotal = selected.reduce((sum, p) => sum + p.price * (qty[p.id] ?? 0), 0);
   const tax = subtotal * 0.08;
