@@ -94,8 +94,8 @@ h1 em, h2 em { color: var(--gold-bright); font-weight: inherit; }
 .order-panel-item-copy .eyebrow { font-size:.62rem; letter-spacing:.26em; }
 .order-panel-item-copy h2 { font-family:var(--font-display); font-size:1.75rem; font-weight:400; line-height:1.1; margin:.3rem 0 .35rem; }
 .order-panel-item-copy>strong { color:var(--gold-bright); font-family:var(--font-display); font-size:1.25rem; font-weight:400; }
-.panel-desc { color:var(--muted-foreground); line-height:1.55; font-size:.8rem; margin:.9rem 0 0; }
-.panel-quantity { padding:.9rem 0 1.25rem; margin-top:.9rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.panel-desc { color:var(--muted-foreground); line-height:1.55; font-size:.8rem; margin:.8rem 0 0; }
+.panel-quantity { padding:.8rem 0 .9rem; margin-top:.8rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .panel-quantity>span { font-size:.68rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted-foreground); }
 .customize-options { padding:1.35rem 1.75rem; margin:0; overflow:auto; }
 .customize-options>p { color:var(--muted-foreground); font-size:.82rem; margin:0 0 .5rem; }
