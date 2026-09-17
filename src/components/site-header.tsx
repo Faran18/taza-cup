@@ -28,7 +28,7 @@ export function SiteHeader() {
       </nav>
       <div className="header-actions">
         <Button asChild variant="order" size="sm" className="header-order">
-          <Link to="/orders" search={{}}><ShoppingBag /> Order</Link>
+          <Link to="/orders" search={{ product: undefined }}><ShoppingBag /> Order</Link>
         </Button>
         <Button className="menu-button" variant="ghost" size="icon" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
           {open ? <X /> : <Menu />}
@@ -37,7 +37,7 @@ export function SiteHeader() {
       {open && (
         <nav className="mobile-nav" aria-label="Mobile navigation">
           {links.map((link) => <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>{link.label}</Link>)}
-          <Link to="/orders" search={{}} onClick={() => setOpen(false)}>Place an order</Link>
+          <Link to="/orders" search={{ product: undefined }} onClick={() => setOpen(false)}>Place an order</Link>
         </nav>
       )}
     </header>
