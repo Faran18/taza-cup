@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
+import { OrderPanelProvider } from "@/components/order-panel";
 
 function NotFoundComponent() {
   return (
@@ -122,9 +123,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteHeader />
-      <main><Outlet /></main>
-      <SiteFooter />
+      <OrderPanelProvider>
+        <SiteHeader />
+        <main><Outlet /></main>
+        <SiteFooter />
+      </OrderPanelProvider>
     </QueryClientProvider>
   );
 }
