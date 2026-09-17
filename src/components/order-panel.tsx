@@ -26,7 +26,7 @@ export function useOrderPanel() {
 
 export function OrderPanelProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const [productId, setProductId] = useState(products[0].id);
+  const [productId, setProductId] = useState<string>(products[0].id);
   const [quantity, setQuantity] = useState(1);
   const [customization, setCustomization] = useState("Classic mix");
   const selectedProduct = products.find((product) => product.id === productId) ?? products[0];
