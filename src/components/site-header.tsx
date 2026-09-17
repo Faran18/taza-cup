@@ -27,7 +27,7 @@ export function SiteHeader() {
         ))}
       </nav>
       <div className="header-actions">
-        <Button asChild variant="order" size="sm">
+        <Button asChild variant="order" size="sm" className="header-order">
           <Link to="/orders"><ShoppingBag /> Order</Link>
         </Button>
         <Button className="menu-button" variant="ghost" size="icon" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
