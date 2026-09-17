@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 type Step = "order" | "details" | "review" | "receipt";
 type Quantities = Record<string, number>;
 export const Route = createFileRoute("/orders")({
-  validateSearch: (search: Record<string, unknown>) => ({ product: typeof search.product === "string" ? search.product : undefined }),
+  validateSearch: (search: Record<string, unknown>) => ({ product: typeof search["product"] === "string" ? search["product"] : undefined }),
   head: () => ({ meta: [
     { title: "Order Fresh Fruit — Taza Cup" }, { name: "description", content: "Choose your Taza Cups and complete a quick pickup order." },
     { property: "og:title", content: "Order Fresh Fruit — Taza Cup" }, { property: "og:description", content: "Build and confirm your fresh fruit cup order." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
