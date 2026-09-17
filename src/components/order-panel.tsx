@@ -66,13 +66,17 @@ export function OrderPanelProvider({ children }: { children: ReactNode }) {
             <TabsTrigger value="customize">Customize Your Cup</TabsTrigger>
           </TabsList>
           <TabsContent value="cup" className="order-panel-item">
-            <img src={selectedProduct.image} alt="Fresh fruit cup placeholder" />
-            <div className="order-panel-item-copy">
-              <p className="eyebrow">Current selection</p>
-              <h2>{selectedProduct.name}</h2>
-              <p>{selectedProduct.description}</p>
-              <strong>{formatPrice(selectedProduct.price)}</strong>
+            <div className="order-panel-item-row">
+              <figure className="panel-thumb">
+                <img src={selectedProduct.image} alt="Fresh fruit cup placeholder" />
+              </figure>
+              <div className="order-panel-item-copy">
+                <p className="eyebrow">Current selection</p>
+                <h2>{selectedProduct.name}</h2>
+                <strong>{formatPrice(selectedProduct.price)}</strong>
+              </div>
             </div>
+            <p className="panel-desc">{selectedProduct.description}</p>
             <div className="panel-quantity">
               <span>Quantity</span>
               <div className="stepper">
