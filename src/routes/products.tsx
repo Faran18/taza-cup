@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { products, formatPrice } from "@/lib/products";
-import { Button } from "@/components/ui/button";
-import { useOrderPanel } from "@/components/order-panel";
+import { products } from "@/lib/products";
+import { ProductCard } from "@/components/product-card";
 
 export const Route = createFileRoute("/products")({
   head: () => ({ meta: [
@@ -13,14 +11,10 @@ export const Route = createFileRoute("/products")({
 });
 
 function ProductsPage() {
-  const { openOrderPanel } = useOrderPanel();
   return <div className="page-shell products-page">
     <header className="page-intro"><p className="eyebrow">Choose your favorite</p><h1>Two cups.<br/><em>All fruit.</em></h1><p>Nothing hidden. Just fresh fruit, cut daily and layered to make every spoonful count.</p></header>
-    <div className="product-list">
-      {products.map((product, index) => <article key={product.id} className={`product-row ${index % 2 ? "reverse" : ""}`}>
-        <div className={`product-photo ${product.accent}`}><span>0{index + 1}</span><img src={product.image} alt={product.name} width={1200} height={1400} loading="lazy" /></div>
-        <div className="product-detail"><p className="eyebrow">{product.kicker}</p><h2>{product.name}</h2><p className="product-description">{product.description}</p><p className="ingredients">{product.ingredients}</p><div className="product-buy"><strong>{formatPrice(product.price)}</strong><Button type="button" variant="order" size="lg" onClick={() => openOrderPanel(product.id)}>Add to order <ArrowRight /></Button></div></div>
-      </article>)}
+    <div className="catalog-grid products-catalog-grid">
+      {products.map((product, index) => <ProductCard key={product.id} product={product} index={index} featured={index === 0} />)}
     </div>
   </div>;
 }

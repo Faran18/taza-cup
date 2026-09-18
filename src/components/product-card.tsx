@@ -1,7 +1,7 @@
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useOrderPanel } from "@/components/order-panel";
-import { formatPrice, type products } from "@/lib/products";
+import { formatPrice, products } from "@/lib/products";
 
 type Product = (typeof products)[number];
 
