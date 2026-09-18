@@ -7,3 +7,5 @@
 - [x] Consolidate homepage hero and add integrated animation placeholder
 - [x] Replace provisional product copy with generic placeholders
 - [x] Add slide-in order panel and checkout handoff
+- [ ] Add standalone product cards to the homepage and refine the Products page presentation
+- [ ] Redesign the How It Works section with an asymmetric leaf-led composition
