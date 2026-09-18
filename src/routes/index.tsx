@@ -23,6 +23,10 @@ function HomePage() {
         <p className="eyebrow">Fruit, done properly</p>
         <h1>Fresh fruit.<br/><em>Full of joy.</em></h1>
         <p className="hero-note">Hand-cut. Generously layered. Ready whenever you need something bright.</p>
+        <div className="hero-cta">
+          <Button asChild variant="order" size="lg"><Link to="/products">Checkout Our Products <ArrowRight /></Link></Button>
+          <Button variant="line" size="lg" onClick={() => window.alert("Chat is coming soon.")}>Chat with Us</Button>
+        </div>
         <a href="#how-it-works" className="scroll-cue"><ArrowDown /> Discover Taza</a>
       </div>
       <div className="hero-animation-placeholder" data-animation-placeholder="cup-assembly">
